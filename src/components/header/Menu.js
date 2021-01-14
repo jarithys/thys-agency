@@ -1,10 +1,20 @@
-import React from 'react'
+import React from "react"
+import { Link } from "gatsby"
+import { MenuList } from "./headerStyles/headerStyles"
 
-const Menu = (menuItems) => {
+const Menu = ({menuItems}) => {
+    console.log(" menuItems: ", menuItems);
     return (
-        <div>
-            Menu
-        </div>
+        <MenuList>
+            
+            {menuItems.map(({node: item}, i) => (
+                <li key={i}>
+                    <Link activeClassName="nav-active" to={item.path}>
+                        {item.label}
+                    </Link>
+                </li>
+            ))}
+        </MenuList>
     )
 }
 

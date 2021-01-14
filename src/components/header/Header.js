@@ -1,7 +1,9 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import PropTypes from "prop-types"
-import {HeaderWrapper} from './headerStyles/headerStyles'
+import Menu from "./Menu"
+import { HeaderWrapper } from './headerStyles/headerStyles'
+
 
 const Header = ({ siteTitle }) => {
   const {
@@ -21,10 +23,11 @@ const Header = ({ siteTitle }) => {
   }
   `)
 
-  console.log(menuItems, "menu items");
-  return <HeaderWrapper>
-    <Menu menuItems={menuItems.edges}></Menu>
-  </HeaderWrapper>
+  return (
+    <HeaderWrapper>
+      <Menu menuItems={menuItems.edges} />
+    </HeaderWrapper>
+  )
 }
 
 Header.propTypes = {
